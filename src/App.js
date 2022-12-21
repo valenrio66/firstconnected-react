@@ -28,6 +28,7 @@ export default function App() {
           <Switch>
             <Route path="/fosil/:id" component={Fosils} />
             <Route path="/fosils"><Fosils /></Route>
+            <Route path="/invertebratas"><Invertebratas /></Route>
             <Route path="/admin"><Admin /></Route>
             <Route path="/"><Home /></Route>
           </Switch>                   
