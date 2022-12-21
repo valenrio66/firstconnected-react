@@ -8,7 +8,7 @@ export default class Fosils extends Component{
     }
 
     componentDidMount(){
-        fetch("https://sbc-sebatcabut.herokuapp.com/fosils")
+        fetch("https://test-gogin.herokuapp.com/fosils")
         .then((response) => response.json())
         .then((json) =>{
             this.setState({

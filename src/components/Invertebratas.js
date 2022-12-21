@@ -8,7 +8,7 @@ export default class Invertebratas extends Component{
     }
 
     componentDidMount(){
-        fetch("https://sbc-sebatcabut.herokuapp.com/invertebratas")
+        fetch("https://test-gogin.herokuapp.com/invertebratas")
         .then((response) => response.json())
         .then((json) =>{
             this.setState({
