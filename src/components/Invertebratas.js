@@ -1,43 +1,46 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
+
+
+axios
+  .get("http://test-gogin.herokuapp.com/invertebratas")
+  .then(function (response) {
+    console.log(response);
+  });
+
+// axios
+//   .get("https://jsonplaceholder.typicode.com/users")
+//   .then(function (response) {
+//     console.log(response);
+//   });
 
 export default class Invertebratas extends Component{
+
+    
     state = {
-        invertebratas : [],
-        isLoaded : false,
-    }
+    persons: []
+  }
 
-    componentDidMount(){
-        fetch("https://test-gogin.herokuapp.com/invertebratas")
-        .then((response) => response.json())
-        .then((json) =>{
-            this.setState({
-                invertebratas: json.invertebratas,
-                isLoaded: true,
-            })
-            console.log(json)
-        })
-    }
+  componentDidMount() {
+    axios.get(`http://test-gogin.herokuapp.com/invertebratas`)
+      .then(res => {
+        const persons = res.data;
+        this.setState({ persons });
+      })
+  }
 
-    render(){
-        const {invertebratas, isLoaded} = this.state;
-
-        if(!isLoaded){
-            return <p>Data is loading...</p>
-        }else{
-            return(
-                <Fragment>
-                    <h2>Invertebratas List</h2>
-                    <ul>
-                        {invertebratas.map((e) =>(
-                            <li key={e.id}>
-                                <Link to={`/invertebratas/${e.id}`}>{e.title}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                </Fragment>
-                
-            );
+  render() {
+    return (
+      <ul>
+        {
+          this.state.persons
+            .map(person =>
+              <li key={person.id}>{person.name}</li>
+            )
         }
-    }
+      </ul>
+    )
+  }
 }

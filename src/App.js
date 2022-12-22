@@ -5,6 +5,9 @@ import Fosils from './components/Fosils';
 import Invertebratas from './components/Invertebratas';
 import Admin from './components/Admin';
 
+
+
+
 export default function App() {
   return (
     <Router>
@@ -18,6 +21,7 @@ export default function App() {
             <nav>
                 <ul className="list-group">
                     <li className="list-group-item"><Link to="/">Home</Link></li>
+                    <li className="list-group-item"><Link to="/coba">coba</Link></li>
                     <li className="list-group-item"><Link to="/fosils">Fosils</Link></li>
                     <li className="list-group-item"><Link to="/invertebratas">Invertebratas</Link></li>
                     <li className="list-group-item"><Link to="/admin">Admin</Link></li>
