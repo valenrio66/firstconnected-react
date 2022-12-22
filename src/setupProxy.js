@@ -4,7 +4,7 @@ module.exports = function(app) {
   app.use(
     '',
     createProxyMiddleware({
-      target: 'http://localhost:8080',
+      target: 'https://test-gogin.herokuapp.com',
       changeOrigin: true,
     })
   );
