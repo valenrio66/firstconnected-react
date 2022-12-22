@@ -1,6 +1,12 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+// const axios = require('axios');
+// axios
+//   .get("https://finalspaceapi.com/api/v0/character/?limit=2")
+//   .then(function (response) {
+//     console.log(response);
+//   });
 
 export default class Invertebratas extends Component{
     state = {
@@ -12,8 +18,14 @@ export default class Invertebratas extends Component{
     axios.get(
         `https://test-gogin.herokuapp.com/`
     )
-        .then(res => console.log(res.data))
-        .catch(err => console.log(err));
+        .then((response) => response.JSON())
+        .then((JSON) => {
+            this.setState({
+                invertebratas: JSON.invertebratas,
+                isLoaded: true,
+            })
+            console.log(JSON)
+        })
 }
 
     // componentDidMount(){
@@ -36,7 +48,7 @@ export default class Invertebratas extends Component{
         }else{
             return(
                 <Fragment>
-                    <h2>Anime List</h2>
+                    <h2>Invertebrata List</h2>
                     <ul>
                         {invertebratas.map((e) =>(
                             <li key={e.id}>

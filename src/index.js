@@ -3,19 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from "./reportWebVitals";
-import axios from 'axios';
+const axios = require('axios');
 
-const endpoints = [
-  "https://test-gogin.herokuapp.com/invertebratas",
-  "https://test-gogin.herokuapp.com/fosils",
-  "https://test-gogin.herokuapp.com/vertebratas",
-  "https://test-gogin.herokuapp.com/villages",
-];
-axios.all(endpoints.map((endpoint) => axios.get(endpoint))).then((allResponses) => {
-    allResponses.forEach((response) => {
-    console.log(response.data);
+axios
+  .get("https://test-gogin.herokuapp.com")
+  .then(function (response) {
+    console.log(response);
   });
-});
 
 // axios({
 //   method: "get",
