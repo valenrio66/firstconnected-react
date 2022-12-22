@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export default class Invertebratas extends Component{
     state = {
@@ -7,17 +8,25 @@ export default class Invertebratas extends Component{
         isLoaded : false,
     }
 
-    componentDidMount(){
-        fetch("http://test-gogin.herokuapp.com/invertebratas")
-        .then((response) => response.json())
-        .then((json) =>{
-            this.setState({
-                invertebratas: json.invertebratas,
-                isLoaded: true,
-            })
-            console.log(json)
-        })
-    }
+    componentDidMount() {
+    axios.get(
+        `https://test-gogin.herokuapp.com/`
+    )
+        .then(res => console.log(res.data))
+        .catch(err => console.log(err));
+}
+
+    // componentDidMount(){
+    //     fetch("http://test-gogin.herokuapp.com/invertebratas")
+    //     .then((response) => response.json())
+    //     .then((json) =>{
+    //         this.setState({
+    //             invertebratas: json.invertebratas,
+    //             isLoaded: true,
+    //         })
+    //         console.log(json)
+    //     })
+    // }
 
     render(){
         const {invertebratas, isLoaded} = this.state;
