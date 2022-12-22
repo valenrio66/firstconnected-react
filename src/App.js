@@ -23,12 +23,12 @@ export default function App() {
             </nav>
         </div>
         <div className="col-md-10">
-          <Router>
+          <Switch>
             <Route path="/invertebratas/:id" component={Invertebrata} />
             <Route path="/invertebratas"><Invertebratas /></Route>
             <Route path="/admin"><Admin /></Route>
             <Route path="/"><Home /></Route>
-          </Router>          
+          </Switch>          
         </div>
     </div>
   </div>    
