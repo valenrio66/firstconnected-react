@@ -1,12 +1,8 @@
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route, Link, useParams, useRouteMatch} from 'react-router-dom';
 import Home from './components/Home';
-import Fosils from './components/Fosils';
 import Invertebratas from './components/Invertebratas';
 import Admin from './components/Admin';
-
-
-
 
 export default function App() {
   return (
@@ -21,21 +17,18 @@ export default function App() {
             <nav>
                 <ul className="list-group">
                     <li className="list-group-item"><Link to="/">Home</Link></li>
-                    <li className="list-group-item"><Link to="/coba">coba</Link></li>
-                    <li className="list-group-item"><Link to="/fosils">Fosils</Link></li>
-                    <li className="list-group-item"><Link to="/invertebratas">Invertebratas</Link></li>
+                    <li className="list-group-item"><Link to="/invertebratas">Invertebrata</Link></li>
                     <li className="list-group-item"><Link to="/admin">Admin</Link></li>
                 </ul>
             </nav>
         </div>
         <div className="col-md-10">
-          <Switch>
-            <Route path="/fosil/:id" component={Fosils} />
-            <Route path="/fosils"><Fosils /></Route>
+          <Router>
+            <Route path="/invertebratas/:id" component={Invertebrata} />
             <Route path="/invertebratas"><Invertebratas /></Route>
             <Route path="/admin"><Admin /></Route>
             <Route path="/"><Home /></Route>
-          </Switch>                   
+          </Router>          
         </div>
     </div>
   </div>    
@@ -43,9 +36,9 @@ export default function App() {
   );
 }
 
-// function Fosils(props){
-//   let {id} = useParams();
-//   return(
-//     <h1>Fosils {id}</h1>
-//   );
-// }
+function Invertebrata(props){
+  let {id} = useParams();
+  return(
+    <h1>Invertebrata {id}</h1>
+  );
+}
